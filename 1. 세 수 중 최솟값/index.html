@@ -8,18 +8,27 @@
       function solution(a, b, c) {
         let answer;
 
+        // if (a < b) {
+        //   if (a < c) {
+        //     answer = a;
+        //   } else {
+        //     answer = c;
+        //   }
+        // } else {
+        //   if (b < c) {
+        //     answer = b;
+        //   } else {
+        //     answer = c;
+        //   }
+        // }
+
         if (a < b) {
-          if (a < c) {
-            answer = a;
-          } else {
-            answer = c;
-          }
+          answer = a;
         } else {
-          if (b < c) {
-            answer = b;
-          } else {
-            answer = c;
-          }
+          answer = b;
+        }
+        if (c < answer) {
+          answer = c;
         }
         return answer;
       }
