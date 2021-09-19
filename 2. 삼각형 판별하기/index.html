@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>삼각형 판별하기</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer;
+        let maxNumber;
+        let sumNumber = a + b + c;
+
+        /* 첫번째 풀이 */
+        // if (a > b) {
+        //   if (a > c) {
+        //     if (b + c > a) {
+        //       answer = 'YES';
+        //     } else {
+        //       answer = 'NO';
+        //     }
+        //   } else {
+        //     if (b + a > c) {
+        //       answer = 'YES';
+        //     } else {
+        //       answer = 'NO';
+        //     }
+        //   }
+        // } else {
+        //   if (b > c) {
+        //     if (a + c > b) {
+        //       answer = 'YES';
+        //     } else {
+        //       answer = 'NO';
+        //     }
+        //   } else {
+        //     if (b + a > c) {
+        //       answer = 'YES';
+        //     } else {
+        //       answer = 'NO';
+        //     }
+        //   }
+        // }
+
+        /* 두번째 풀이 */
+        if (a > b) maxNumber = a;
+        else maxNumber = b;
+        if (c > maxNumber) maxNumber = c;
+
+        if (sumNumber - maxNumber > maxNumber) {
+          answer = 'YES';
+        } else {
+          answer = 'NO';
+        }
+
+        return answer;
+      }
+
+      console.log(solution(6, 7, 11));
+      console.log(solution(13, 33, 17));
+      console.log(solution(11, 5, 7));
+    </script>
+  </body>
+</html>
