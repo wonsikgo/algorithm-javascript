@@ -9,13 +9,12 @@
   <body>
     <script>
       function solution(student) {
-        let result;
         const PENCIL = 12;
-
-        result = student / PENCIL;
+        const result = Math.ceil(student / PENCIL);
 
         return result;
       }
+      console.log(solution(12));
       console.log(solution(25));
       console.log(solution(178));
     </script>
