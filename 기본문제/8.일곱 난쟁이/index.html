@@ -9,7 +9,23 @@
   <body>
     <script>
       function solution(arr) {
-        let answer;
+        let sum = 0;
+
+        arr.forEach((person) => {
+          sum = sum + person;
+        });
+
+        for (let i = 0; i < arr.length - 1; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            console.log(`i, j : ${i}, ${j}`);
+            if (sum - (arr[i] + arr[j]) === 100) {
+              arr.splice(i, 1);
+              arr.splice(j, 1);
+            }
+          }
+        }
+
+        console.log(arr);
       }
       solution([20, 7, 23, 19, 10, 15, 25, 8, 13]);
     </script>
