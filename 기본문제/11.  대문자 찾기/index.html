@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>대문자 찾기</title>
+  </head>
+  <body>
+    <script>
+      function solution(text) {
+        let answer = 0;
+        for (let i = 0; i < text.length; i++) {
+          if (text.charCodeAt(i) < 91) answer++;
+        }
+        console.log(answer);
+        return answer;
+      }
+
+      function solution2(text) {
+        let answer = 0;
+        for (let t of text) {
+          if (t === t.toUpperCase()) answer++;
+        }
+        console.log(answer);
+        return answer;
+      }
+
+      solution('KoreaTimeGood');
+      solution2('KoreaTimeGood');
+    </script>
+  </body>
+</html>
