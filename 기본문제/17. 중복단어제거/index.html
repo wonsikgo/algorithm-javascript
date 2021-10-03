@@ -21,7 +21,15 @@
         return answer;
       }
 
+      function solution2(arr) {
+        let answer = [];
+        console.log([...new Set(arr)].join('\n'));
+
+        return [...new Set(arr)];
+      }
+
       solution(['good', 'time', 'good', 'time', 'time', 'student']);
+      solution2(['good', 'time', 'good', 'time', 'time', 'student']);
     </script>
   </body>
 </html>
