@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>격자판 최대합</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = 0;
+
+        let diagonalSum1 = 0;
+        let diagonalSum2 = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          let verticalSum = 0;
+          let horizontalSum = 0;
+
+          for (let j = 0; j < arr[i].length; j++) {
+            verticalSum += arr[i][j];
+            horizontalSum += arr[j][i];
+
+            /* 첫번째 대각선 */
+            if (i === j) diagonalSum1 += arr[i][j];
+
+            /* 두번째 대각선 */
+            if (i + j === 4) diagonalSum2 += arr[i][j];
+          }
+
+          if (answer < verticalSum) answer = verticalSum;
+          if (answer < horizontalSum) answer = horizontalSum;
+        }
+
+        if (answer < diagonalSum1) answer = diagonalSum1;
+        if (answer < diagonalSum2) answer = diagonalSum2;
+
+        console.log(answer);
+        return answer;
+      }
+      solution([
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+      ]);
+    </script>
+  </body>
+</html>
