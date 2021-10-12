@@ -13,7 +13,28 @@
 
         for (let i = 1; i < arr.length - 1; i++) {
           for (let j = 1; j < arr[i].length - 1; j++) {
-            const max = Math.max(arr[i - 1][j], arr[i + 1][j], arr[i][j - 1], arr[i][j - 1]);
+            const max = Math.max(arr[i - 1][j], arr[i + 1][j], arr[i][j - 1], arr[i][j + 1]);
+            if (arr[i][j] > max) answer++;
+          }
+        }
+
+        console.log(answer);
+        return answer;
+      }
+
+      function solution2(arr) {
+        let answer = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr[i].length; j++) {
+            let tempArr = [];
+
+            if (i - 1 >= 0) tempArr.push(arr[i - 1][j]);
+            if (i + 1 < arr.length) tempArr.push(arr[i + 1][j]);
+            if (j - 1 >= 0) tempArr.push(arr[i][j - 1]);
+            if (j + 1 < arr[i].length) tempArr.push(arr[i][j + 1]);
+
+            const max = Math.max(...tempArr);
             if (arr[i][j] > max) answer++;
           }
         }
@@ -30,6 +51,14 @@
         [0, 4, 3, 6, 4, 1, 0],
         [0, 8, 7, 3, 5, 2, 0],
         [0, 0, 0, 0, 0, 0, 0],
+      ]);
+
+      solution2([
+        [5, 3, 7, 2, 3],
+        [3, 7, 1, 6, 1],
+        [7, 2, 5, 3, 4],
+        [4, 3, 6, 4, 1],
+        [8, 7, 3, 5, 2],
       ]);
     </script>
   </body>
