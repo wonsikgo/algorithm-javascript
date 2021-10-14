@@ -17,7 +17,26 @@
         return answer;
       }
 
+      function solution2(text) {
+        let answer = '';
+
+        let temp1 = '';
+        for (let i = text.length - 1; 0 <= i; i--) {
+          temp1 += text[i];
+        }
+
+        if (text.toLowerCase() === temp1.toLowerCase()) answer = 'YES';
+        else answer = 'NO';
+
+        console.log(answer);
+        return answer;
+      }
+
       solution('gooG');
+      solution('gokkg');
+
+      solution2('gooG');
+      solution2('gokkg');
     </script>
   </body>
 </html>
