@@ -17,8 +17,24 @@
         return Number(answer);
       }
 
+      function solution2(text) {
+        let answer = '';
+
+        for (let t of text) {
+          if (t.charCodeAt() >= 48 && t.charCodeAt() <= 57) {
+            answer += t;
+          }
+        }
+
+        console.log(Number(answer));
+        return Number(answer);
+      }
+
       solution('g0en2T0s8eSoft');
       solution('“tge0a1h205er');
+
+      solution2('g0en2T0s8eSoft');
+      solution2('tge0a1h205er');
     </script>
   </body>
 </html>
