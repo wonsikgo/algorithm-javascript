@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가장 짧은 문자거리</title>
+  </head>
+  <body>
+    <script>
+      function solution(text, t) {
+        let answer = [];
+        const length = text.length;
+
+        for (let i = 0; i < length; i++) {
+          let distance = '';
+          for (let j = 0; j < length; j++) {
+            if (text[j] === t) {
+              if (distance === '') {
+                distance = Math.abs(j - i);
+              } else {
+                distance = Math.min(distance, Math.abs(j - i));
+              }
+            }
+          }
+          answer.push(distance);
+        }
+
+        console.log(answer.join(','));
+        return answer;
+      }
+
+      solution('teachermode', 'e');
+    </script>
+  </body>
+</html>
