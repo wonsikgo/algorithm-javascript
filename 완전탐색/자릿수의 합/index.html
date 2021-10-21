@@ -11,18 +11,18 @@
       function solution(arr) {
         let answer = 0;
         let tempArr = [];
-        let sum = 0;
+        let max = 0;
         for (let i = 0; i < arr.length; i++) {
-          let num = 0;
+          let sum = 0;
           //   console.log(arr[i]);
           //   console.log(Math.floor(arr[i] / 10));
           //   console.log(arr[i] % 10);
           for (let j = arr[i]; j >= 1; j = Math.floor(j / 10)) {
-            num += j % 10;
+            sum += j % 10;
           }
 
-          if (num >= sum) {
-            sum = num;
+          if (sum >= max) {
+            max = sum;
             tempArr.push(arr[i]);
           }
         }
@@ -32,7 +32,31 @@
         return answer;
       }
 
+      function solution2(arr) {
+        let answer = 0;
+        let max = 0;
+        for (let number of arr) {
+          let sum = number
+            .toString()
+            .split('')
+            .reduce((a, b) => Number(a) + Number(b), 0);
+
+          if (sum > max) {
+            max = sum;
+            answer = number;
+          } else if (sum === max) {
+            if (number > answer) {
+              answer = number;
+            }
+          }
+        }
+
+        console.log(answer);
+        return answer;
+      }
+
       solution([128, 460, 603, 40, 521, 137, 123]);
+      solution2([128, 460, 603, 40, 521, 137, 123]);
     </script>
   </body>
 </html>
