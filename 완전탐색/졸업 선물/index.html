@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>졸업선물</title>
+  </head>
+  <body>
+    <script>
+      function solution(infoArr, productArr) {
+        let answer = 0;
+        const student = infoArr[0];
+        let money = infoArr[1];
+
+        let tempArr = [];
+        for (let i = 0; i < student; i++) {
+          let sum = 0;
+          for (let j = 0; j < productArr[i].length; j++) {
+            sum += productArr[i][j];
+          }
+
+          tempArr.push(sum);
+        }
+
+        let tempArr2 = [];
+        console.log(tempArr);
+
+        for (let i = 0; i < tempArr.length; i++) {
+          let cnt = 0;
+          for (let j = 0; j < tempArr.length; j++) {
+            if (tempArr[i] > tempArr[j]) cnt++;
+          }
+
+          tempArr2[cnt] = productArr[i];
+        }
+
+        console.log(tempArr2);
+
+        for (let i = 0; i < student; i++) {
+          let sum = 0;
+          for (let j = 0; j < tempArr2[i].length; j++) {
+            sum += tempArr2[i][j];
+          }
+
+          if (money >= sum) {
+            answer++;
+            money -= sum;
+            console.log(money);
+          } else {
+            if (money >= tempArr2[i][0] / 2 + tempArr2[i][1]) {
+              answer++;
+              money = money - (tempArr2[i][0] / 2 + tempArr2[i][1]);
+            } else {
+              break;
+            }
+          }
+        }
+
+        console.log(answer);
+      }
+
+      solution(
+        [5, 28],
+        [
+          [6, 6],
+          [2, 2],
+          [4, 3],
+          [4, 5],
+          [10, 3],
+        ]
+      );
+    </script>
+  </body>
+</html>
