@@ -9,6 +9,8 @@
   <body>
     <script>
       function solution(arr1, arr2) {
+        // 1. 두배열을 합친다.
+        // 2. 오름차순으로 정렬한다.
         let answer = [...arr1, ...arr2].sort((a, b) => a - b);
 
         console.log(answer);
