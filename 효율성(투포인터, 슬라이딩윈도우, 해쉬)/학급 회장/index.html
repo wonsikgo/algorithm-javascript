@@ -10,16 +10,57 @@
     <script>
       function solution(n, arr) {
         let answer = '';
+        let sum = 0;
 
-        let temp = [
-          {key: 'A', count: 0},
-          {key: 'B', count: 0},
-          {key: 'C', count: 0},
-          {key: 'D', count: 0},
-          {key: 'E', count: 0},
-        ];
+        let student = {
+          A: 0,
+          B: 0,
+          C: 0,
+          D: 0,
+          E: 0,
+        };
+
+        for (let i of arr) {
+          if (i === 'A') student.A++;
+          else if (i === 'B') student.B++;
+          else if (i === 'C') student.C++;
+          else if (i === 'D') student.D++;
+          else if (i === 'E') student.E++;
+        }
+
+        for (let key in student) {
+          if (student[key] > sum) {
+            answer = key;
+            sum = student[key];
+          }
+        }
+        console.log(answer);
+      }
+
+      function solution2(n, arr) {
+        let answer = '';
+        const vote = new Map();
+
+        for (let student of arr) {
+          if (vote.has(student)) {
+            vote.set(student, vote.get(student) + 1);
+          } else {
+            vote.set(student, 1);
+          }
+        }
+
+        let sum = 0;
+        vote.forEach((value, key, indx) => {
+          if (value > sum) {
+            sum = value;
+            answer = key;
+          }
+        });
+
+        console.log(answer);
       }
       solution(15, ['B', 'A', 'C', 'B', 'A', 'C', 'C', 'A', 'C', 'C', 'B', 'D', 'E', 'D', 'E']);
+      solution2(15, ['B', 'A', 'C', 'B', 'A', 'C', 'C', 'A', 'C', 'C', 'B', 'D', 'E', 'D', 'E']);
     </script>
   </body>
 </html>
