@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아나그램</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b) {
+        let answer = 'YES';
+
+        // 1. 두개의 문자열을 각각 해쉬맵으로 만든다.
+        // 2. 해쉬멥에 Key의 Value값이 일치하는지 확인한다.
+
+        const anagramA = new Map();
+        const anagramB = new Map();
+
+        for (let i of a.split('')) {
+          if (anagramA.has(i)) {
+            anagramA.set(i, anagramA.get(i) + 1);
+          } else {
+            anagramA.set(i, 1);
+          }
+        }
+
+        for (let i of b.split('')) {
+          if (anagramB.has(i)) {
+            anagramB.set(i, anagramB.get(i) + 1);
+          } else {
+            anagramB.set(i, 1);
+          }
+        }
+        anagramA.forEach((value, key) => {
+          if (anagramB.get(key) !== value) answer = 'NO';
+        });
+
+        console.log(answer);
+      }
+
+      solution('AbaAeCe', 'baeeACA');
+      solution('abaCC', 'Caaab');
+    </script>
+  </body>
+</html>
