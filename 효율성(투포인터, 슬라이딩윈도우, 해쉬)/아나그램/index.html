@@ -17,7 +17,7 @@
         const anagramA = new Map();
         const anagramB = new Map();
 
-        for (let i of a.split('')) {
+        for (let i of a) {
           if (anagramA.has(i)) {
             anagramA.set(i, anagramA.get(i) + 1);
           } else {
@@ -25,7 +25,7 @@
           }
         }
 
-        for (let i of b.split('')) {
+        for (let i of b) {
           if (anagramB.has(i)) {
             anagramB.set(i, anagramB.get(i) + 1);
           } else {
@@ -39,8 +39,35 @@
         console.log(answer);
       }
 
+      function solution2(a, b) {
+        let answer = 'YES';
+
+        // 1. 문자열 a만 해쉬맵을 만든다.
+        // 2. 문자열 b를 반복하면서 a에대한 해쉬맵에 대한 key값과 비교하여 확인한다.
+
+        const anagram = new Map();
+
+        for (let i of a) {
+          if (anagram.has(i)) anagram.set(i, anagram.get(i) + 1);
+          else anagram.set(i, 1);
+        }
+
+        for (let i of b) {
+          if (!anagram.has(i) || anagram.get(i) === 0) {
+            answer = 'NO';
+            break;
+          }
+          anagram.set(i, anagram.get(i) - 1);
+        }
+
+        console.log(answer);
+      }
+
       solution('AbaAeCe', 'baeeACA');
       solution('abaCC', 'Caaab');
+
+      solution2('AbaAeCe', 'baeeACA');
+      solution2('abaCC', 'Caaab');
     </script>
   </body>
 </html>
