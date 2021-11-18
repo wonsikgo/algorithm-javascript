@@ -30,7 +30,32 @@
         console.log(answer);
       }
 
+      function calculate(rt, lt, i) {
+        if (i === '+') return lt + rt;
+        else if (i === '-') return lt - rt;
+        else if (i === '*') return lt * rt;
+        else if (i === '/') return lt / rt;
+      }
+
+      function solution2(text) {
+        let answer = 0;
+
+        let stack = [];
+
+        for (let i of text) {
+          if (!isNaN(i)) {
+            stack.push(Number(i));
+          } else {
+            stack.push(calculate(stack.pop(), stack.pop(), i));
+          }
+        }
+
+        answer = stack[0];
+        console.log(answer);
+      }
+
       solution('352+*9-');
+      solution2('352+*9-');
     </script>
   </body>
 </html>
