@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>크레인 인형뽑기</title>
+  </head>
+  <body>
+    <script>
+      function solution(board, moves) {
+        let answer = 0;
+
+        let stack = [];
+
+        //1. moves 값의 -1을 한 board의 1차원 배열을 찾는다
+        //2. 찾은 배열에서 가장 마지막 값을 추출한다.
+        //3. stack의 마지막값을 가지고 와서 stack의 푸쉬하려는 값과 비교하여 같으면 answer의 값을 2증가시킨다.
+        for (let i of moves) {
+          let temp = stack.pop();
+          let temp2 = board[i - 1].pop();
+          if (temp !== undefined) {
+            console.log(`i: ${i}`);
+            console.log(`temp: ${temp}`);
+            console.log(`temp2: ${temp2}`);
+            if (temp === temp2) {
+              answer += 2;
+            } else {
+              stack.push(temp);
+              stack.push(temp2);
+            }
+          } else {
+            stack.push(temp2);
+          }
+        }
+
+        console.log(answer);
+      }
+
+      solution(
+        [
+          [0, 0, 0, 0, 0],
+          [0, 0, 1, 0, 3],
+          [0, 2, 5, 0, 1],
+          [4, 2, 4, 4, 2],
+          [3, 5, 1, 3, 1],
+        ],
+        [1, 5, 3, 5, 1, 2, 1, 4]
+      );
+    </script>
+  </body>
+</html>
