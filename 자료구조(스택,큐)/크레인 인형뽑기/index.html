@@ -17,27 +17,55 @@
         //2. 찾은 배열에서 가장 마지막 값을 추출한다.
         //3. stack의 마지막값을 가지고 와서 stack의 푸쉬하려는 값과 비교하여 같으면 answer의 값을 2증가시킨다.
         for (let i of moves) {
-          let temp = stack.pop();
-          let temp2 = board[i - 1].pop();
-          if (temp !== undefined) {
+          let a = board[i - 1].pop();
+
+          if (a === 0) {
+            continue;
+          }
+          let b = stack.pop();
+          if (b !== undefined) {
             console.log(`i: ${i}`);
-            console.log(`temp: ${temp}`);
-            console.log(`temp2: ${temp2}`);
-            if (temp === temp2) {
+            console.log(`a: ${a}`);
+            console.log(`b: ${b}`);
+            if (a === b) {
               answer += 2;
             } else {
-              stack.push(temp);
-              stack.push(temp2);
+              stack.push(a);
+              stack.push(b);
             }
           } else {
-            stack.push(temp2);
+            stack.push(a);
           }
         }
 
         console.log(answer);
       }
 
-      solution(
+      function solution2(board, moves) {
+        let answer = 0;
+        let stack = [];
+
+        for (let i of moves) {
+          for (let j = 0; j < board.length; j++) {
+            if (board[j][i - 1] !== 0) {
+              if (stack[stack.length - 1] === board[j][i - 1]) {
+                stack.pop();
+                answer += 2;
+              } else {
+                stack.push(board[j][i - 1]);
+              }
+              board[j][i - 1] = 0;
+              break;
+            }
+          }
+          console.log(`i : ${i}`);
+          console.log(`stack : ${stack}`);
+        }
+
+        console.log(answer);
+      }
+
+      solution2(
         [
           [0, 0, 0, 0, 0],
           [0, 0, 1, 0, 3],
