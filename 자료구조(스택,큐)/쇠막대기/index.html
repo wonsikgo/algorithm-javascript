@@ -10,6 +10,27 @@
     <script>
       function solution(stick) {
         let answer = 0;
+        let stack = [];
+
+        // 1. '('를 찾으면 push한다.
+        // 2. ')'라면 stack의 가장 마지막값을 가져온다
+        // 3. 마지막 값이 '('이면 stack의 값을 하나 pop하고 stack의 길이를 answer에 더한다.
+        // 4. 마지막 값이 ')'이면 stack의 값을 하나 pop하고 answer에 1을 더한다.
+        for (let i of stick) {
+          if (i === '(') {
+            stack.push(i);
+          } else {
+            if (stack[stack.length - 1] === '(') {
+              stack.pop();
+              answer += stack.length;
+            } else {
+              stack.pop();
+              answer += 1;
+            }
+          }
+        }
+
+        console.log(answer);
       }
 
       solution('()(((()())(())()))(())');
