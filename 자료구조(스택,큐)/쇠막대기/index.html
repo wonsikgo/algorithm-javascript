@@ -33,8 +33,31 @@
         console.log(answer);
       }
 
-      solution('()(((()())(())()))(())');
-      solution('(((()(()()))(())()))(()())');
+      function solution2(stick) {
+        let answer = 0;
+        let stack = [];
+
+        for (let i = 0; i < stick.length; i++) {
+          if (stick[i] === '(') {
+            stack.push(stick[i]);
+          } else {
+            stack.pop();
+            if (stick[i - 1] === '(') {
+              answer += stack.length;
+            } else {
+              answer += 1;
+            }
+          }
+        }
+
+        console.log(answer);
+      }
+
+      // solution('()(((()())(())()))(())');
+      // solution('(((()(()()))(())()))(()())');
+
+      solution2('()(((()())(())()))(())');
+      solution2('(((()(()()))(())()))(()())');
     </script>
   </body>
 </html>
