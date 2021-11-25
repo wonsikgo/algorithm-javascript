@@ -10,9 +10,44 @@
     <script>
       function solution(n, k) {
         let answer = '';
+
+        let temp = [];
+
+        for (let i = 1; i <= 8; i++) {
+          temp.push(i);
+        }
+        for (let i = 0; i < n; i++) {
+          if (temp.length === 1) break;
+          for (let j = 0; j < k; j++) {
+            if (j === k - 1) {
+              temp.splice(0, 1);
+            } else {
+              temp.push(temp[0]);
+              temp.splice(0, 1);
+            }
+          }
+        }
+        answer = temp[0];
+        console.log(answer);
+      }
+
+      /* 자료구조 큐를 이용 */
+      function solution2(n, k) {
+        let answer;
+        let queue = Array.from({length: n}, (v, i) => i + 1);
+        console.log(queue);
+
+        while (queue.length) {
+          for (let i = 1; i < k; i++) queue.push(queue.shift());
+          queue.shift();
+          if (queue.length === 1) answer = queue.shift();
+        }
+
+        console.log(answer);
       }
 
       solution(8, 3);
+      solution2(8, 3);
     </script>
   </body>
 </html>
