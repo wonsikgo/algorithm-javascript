@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>교육과정 설계</title>
+  </head>
+  <body>
+    <script>
+      function solution(subject, plan) {
+        let answer = 'YES';
+
+        let queue = [];
+
+        for (let i of plan) {
+          if (subject.indexOf(i) !== -1) queue.push(i);
+        }
+
+        if (queue.join('') !== subject) answer = 'NO';
+        console.log(answer);
+      }
+
+      solution('CBA', 'CBDAGE');
+      solution('CBA', 'CDAGEB');
+      solution('CBA', 'ADCGEB');
+    </script>
+  </body>
+</html>
