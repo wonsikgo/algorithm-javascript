@@ -24,8 +24,28 @@
         console.log(number, number2);
       }
 
-      solution([120, 125, 152, 130, 135, 135, 143, 127, 160]);
-      solution([120, 130, 150, 150, 130, 150]);
+      /* 정렬로 비교해서 풀이 */
+      function solution2(arr) {
+        let answer, answer2;
+        let temp = [...arr];
+
+        for (let i = 0; i < temp.length - 1; i++) {
+          for (let j = i + 1; j < temp.length; j++) {
+            if (temp[i] > temp[j]) [temp[i], temp[j]] = [temp[j], temp[i]];
+          }
+        }
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] !== temp[i]) {
+            if (!answer) answer = i + 1;
+            else answer2 = i + 1;
+          }
+        }
+
+        console.log(answer, answer2);
+      }
+
+      solution2([120, 125, 152, 130, 135, 135, 143, 127, 160]);
+      solution2([120, 130, 150, 150, 130, 150]);
     </script>
   </body>
 </html>
