@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>좌표정렬</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = arr;
+
+        for (let i = 0; i < arr.length - 1; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i][0] > arr[j][0]) {
+              [arr[i], arr[j]] = [arr[j], arr[i]];
+            } else if (arr[i][0] === arr[j][0]) {
+              if (arr[i][1] > arr[j][1]) {
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+              }
+            }
+          }
+        }
+
+        console.log(answer);
+      }
+
+      solution([
+        [2, 7],
+        [1, 3],
+        [1, 2],
+        [2, 5],
+        [3, 6],
+      ]);
+    </script>
+  </body>
+</html>
