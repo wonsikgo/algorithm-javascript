@@ -13,20 +13,39 @@
         let value = 0;
 
         arr.sort((a, b) => a - b);
-        console.log(arr);
 
         while (value != m) {
           value = arr[Math.floor(arr.length / 2)];
           if (value > m) arr.splice(Math.floor(arr.length / 2), arr.length);
           else arr.splice(0, Math.floor(arr.length / 2));
-          console.log(arr);
           answer++;
         }
 
         console.log(answer);
       }
 
-      solution(81, [23, 87, 65, 12, 57, 32, 99, 81]);
+      function solution2(target, arr) {
+        let answer = 0;
+        let lt = 0;
+        let rt = arr.length - 1;
+
+        arr.sort((a, b) => a - b);
+
+        console.log(arr);
+
+        while (lt <= rt) {
+          const index = parseInt((lt + rt) / 2);
+          if (target === arr[index]) {
+            answer = index + 1;
+            break;
+          } else if (target > arr[index]) lt = index + 1;
+          else rt = index - 1;
+        }
+
+        console.log(answer);
+      }
+
+      solution2(32, [23, 87, 65, 12, 57, 32, 99, 81]);
     </script>
   </body>
 </html>
