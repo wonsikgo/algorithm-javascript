@@ -10,6 +10,39 @@
     <script>
       function solution(n, arr) {
         let answer = 0;
+        let lt = Math.max(...arr);
+        let rt = 0;
+
+        for (let i of arr) {
+          rt += i;
+        }
+
+        console.log(lt);
+        console.log(rt);
+
+        while (lt <= rt) {
+          let mid = parseInt((lt + rt) / 2);
+          let sum = 0;
+          let count = 0;
+          for (let i of arr) {
+            if (sum + i < mid) {
+              sum += i;
+            } else {
+              sum = 0;
+              count++;
+            }
+          }
+
+          if (count >= n) {
+            lt = mid + 1;
+          } else {
+            rt = mid - 1;
+          }
+
+          answer = mid;
+        }
+
+        console.log(answer);
       }
 
       solution(3, [1, 2, 3, 4, 5, 6, 7, 8, 9]);
