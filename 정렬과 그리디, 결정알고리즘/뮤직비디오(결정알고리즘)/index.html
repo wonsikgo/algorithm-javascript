@@ -22,27 +22,34 @@
 
         while (lt <= rt) {
           let mid = parseInt((lt + rt) / 2);
-          let sum = 0;
-          let count = 0;
-          for (let i of arr) {
-            if (sum + i < mid) {
-              sum += i;
-            } else {
-              sum = 0;
-              count++;
-            }
-          }
 
-          if (count >= n) {
-            lt = mid + 1;
-          } else {
+          let count = calcCount(arr, mid);
+
+          if (count <= n) {
             rt = mid - 1;
+            answer = mid;
+          } else {
+            lt = mid + 1;
           }
-
-          answer = mid;
         }
 
         console.log(answer);
+      }
+
+      function calcCount(arr, mid) {
+        let sum = 0;
+        let count = 1;
+
+        for (let i of arr) {
+          if (sum + i > mid) {
+            sum = i;
+            count++;
+          } else {
+            sum += i;
+          }
+        }
+
+        return count;
       }
 
       solution(3, [1, 2, 3, 4, 5, 6, 7, 8, 9]);
