@@ -9,16 +9,23 @@
   <body>
     <script>
       function solution(number) {
+        let answer = '';
         function DFS(number) {
-          if (number === 1) {
-            console.log(number);
-            return;
-          } else {
+          //   if (number === 1) {
+          //     console.log(number);
+          //     return;
+          //   } else {
+          //     DFS(parseInt(number / 2));
+          //     console.log(number % 2);
+          //   }
+          if (number === 0) return;
+          else {
             DFS(parseInt(number / 2));
-            console.log(number % 2);
+            answer += String(number % 2);
           }
         }
         DFS(number);
+        console.log(answer);
       }
       solution(11);
     </script>
