@@ -13,9 +13,14 @@
         function DFS(v) {
           if (v > 7) return;
           else {
-            answer += v + ' ';
+            //전위순위
+            //answer += v + ' ';
             DFS(v * 2);
+            //중위순위;
+            //answer += v + ' ';
             DFS(v * 2 + 1);
+            //후위순위
+            answer += v + ' ';
           }
         }
         DFS(n);
