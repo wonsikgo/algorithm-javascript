@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>최빈값 구하기</title>
+  </head>
+  <body>
+    <script>
+      function solution(array) {
+        let maxNumber = 0;
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+          if (array.length === 1) {
+            maxNumber = array[i];
+            break;
+          }
+          let sum = 1;
+          for (let j = i + 1; j < array.length; j++) {
+            if (array[i] === array[j]) {
+              sum++;
+            }
+          }
+
+          if (sum > count) {
+            maxNumber = array[i];
+            count = sum;
+          } else if (sum === count) {
+            maxNumber = -1;
+          }
+        }
+
+        return maxNumber;
+      }
+
+      console.log(solution([1, 2, 3, 3, 3, 4]));
+      console.log(solution([1, 1, 2, 2]));
+      console.log(solution([1]));
+    </script>
+  </body>
+</html>
