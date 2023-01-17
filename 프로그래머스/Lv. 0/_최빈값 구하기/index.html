@@ -34,7 +34,14 @@
         return maxNumber;
       }
 
-      // 객체를 활용
+      /**
+       *  최빈값 구하기
+       *  1. Map 또는 객체를 생성
+       *  2. 반복문으로 통해 가장 많이 포함된 배열을 key value로 구함
+       *  3. 오름차순으로 정렬
+       *  4. 길이가 1 or 값이 같은지 확인 후 리턴
+       *
+       */
       function solution2(array) {
         const obj = {};
         // obj.i 라고 생각
