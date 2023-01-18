@@ -12,28 +12,29 @@
         const numer3 = numer1 * denom2 + numer2 * denom1;
         const denom3 = denom1 * denom2;
 
-        const getArr1 = getArr(numer3);
-        const getArr2 = getArr(denom3);
+        // const getArr1 = getArr(numer3);
+        // const getArr2 = getArr(denom3);
 
-        console.log(getArr1);
-        console.log(getArr2);
+        // console.log(getArr1);
+        // console.log(getArr2);
 
-        let max = 0;
+        // let gcd = 0;
 
-        for (let i = 0; i < getArr1.length; i++) {
-          let num = 0;
-          for (let j = 0; j < getArr2.length; j++) {
-            if (getArr1[i] === getArr2[j]) {
-              num = getArr1[i];
-            }
-          }
+        // for (let i = 0; i < getArr1.length; i++) {
+        //   let num = 0;
+        //   for (let j = 0; j < getArr2.length; j++) {
+        //     if (getArr1[i] === getArr2[j]) {
+        //       num = getArr1[i];
+        //     }
+        //   }
 
-          if (num > max) {
-            max = num;
-          }
-        }
+        //   if (num > gcd) {
+        //     gcd = num;
+        //   }
+        // }
+        const gcd = getGCD2(numer3, denom3);
 
-        return [numer3 / max, denom3 / max];
+        return [numer3 / gcd, denom3 / gcd];
       }
 
       // 최대 공약수 10, 8
@@ -46,6 +47,26 @@
         }
 
         return numArr;
+      }
+
+      function getGCD(numer3, denom3) {
+        if (numer3 % denom3 === 0) {
+          return denom3;
+        } else {
+          return getGCD(denom3, numer3 % denom3);
+        }
+      }
+
+      function getGCD2(numer3, denom3) {
+        const max = Math.max(numer3, denom3);
+        let gcd = 1;
+        for (let i = max; i > 0; i--) {
+          if (numer3 % i === 0 && denom3 % i === 0) {
+            gcd = i;
+            break;
+          }
+        }
+        return gcd;
       }
 
       console.log(solution(1, 2, 3, 4));
