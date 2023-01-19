@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연속된 수의 합</title>
+  </head>
+  <body>
+    <script>
+      function solution(num, total) {
+        let answer = [];
+
+        const space = parseInt(num / 2);
+        const centerNum = parseInt(total / num);
+        let initNum = num % 2 !== 0 ? centerNum - space : centerNum - space + 1;
+
+        for (let i = 0; i < num; i++) {
+          answer.push(initNum + i);
+        }
+
+        return answer;
+      }
+
+      console.log(solution(3, 12));
+      console.log(solution(5, 15));
+      console.log(solution(4, 14));
+      console.log(solution(5, 5));
+    </script>
+  </body>
+</html>
