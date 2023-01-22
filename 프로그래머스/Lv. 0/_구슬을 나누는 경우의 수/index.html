@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구슬을 나누는 경우의 수</title>
+  </head>
+  <body>
+    <script>
+      function solution(balls, share) {
+        const ballsCalc = calc(balls);
+        const shareCalc = calc(share);
+        const resultCalc = calc(balls - share);
+        return Math.round(ballsCalc / (resultCalc * shareCalc));
+      }
+
+      function calc(count) {
+        let result = 1;
+        for (let i = 1; i <= count; i++) {
+          result *= i;
+        }
+        return result;
+      }
+
+      console.log(solution(3, 2));
+      console.log(solution(5, 3));
+      console.log(solution(30, 30));
+    </script>
+  </body>
+</html>
