@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>합성수 찾기</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let answer = 0;
+
+        for (let i = 1; i <= n; i++) {
+          if (getGCD(i) > 2) {
+            answer++;
+          }
+        }
+        return answer;
+      }
+
+      function getGCD(number) {
+        let result = 0;
+        for (let i = 1; i <= number; i++) {
+          if (number % i === 0) {
+            result++;
+          }
+        }
+        return result;
+      }
+
+      console.log(solution(10));
+      console.log(solution(15));
+    </script>
+  </body>
+</html>
