@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다항식 더하기</title>
+  </head>
+  <body>
+    <script>
+      function solution(polynomial) {
+        const array = polynomial.split(" + ");
+        const number = array.filter((a) => !a.includes("x"))[0] || ""; // [7]
+        const x = array
+          .filter((a) => a.includes("x"))
+          .map((b) => Number(b.replace(/[^0-9]/, "")) || 1)
+          .reduce((acc, cur) => {
+            return acc + cur;
+          }, 0); // [3x, x]
+
+        if (number !== "") {
+          return `${x}x + ${number}`;
+        } else {
+          if (x === 1) {
+            return "x";
+          } else {
+            return `${x}x`;
+          }
+        }
+      }
+
+      console.log(solution("3x + 7 + x"));
+      console.log(solution("x + x + x"));
+    </script>
+  </body>
+</html>
