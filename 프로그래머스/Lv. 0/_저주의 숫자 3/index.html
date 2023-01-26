@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>저주의 숫자 3</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let answer = 0;
+        for (let i = 1; i <= n; i++) {
+          if (answer && answer % 3 === 0) {
+            answer += 2;
+          } else {
+            answer++;
+          }
+          while (checkThree(answer)) {
+            answer++;
+          }
+        }
+        return answer;
+      }
+      function checkThree(number) {
+        return number % 3 === 0 || String(number).includes(3);
+      }
+      console.log(solution(1));
+      console.log(solution(2));
+      console.log(solution(3));
+      console.log(solution(4));
+      console.log(solution(5));
+      console.log(solution(6));
+      console.log(solution(7));
+      console.log(solution(8));
+      console.log(solution(9));
+      console.log(solution(10));
+      console.log(solution(11));
+      console.log(solution(12));
+      console.log(solution(13));
+      console.log(solution(14));
+      console.log(solution(15));
+    </script>
+  </body>
+</html>
