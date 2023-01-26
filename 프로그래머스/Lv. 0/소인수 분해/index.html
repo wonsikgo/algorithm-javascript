@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>소인수 분해</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        const numbers = getNum(n);
+        return numbers.filter(
+          (number) => number !== 1 && getNum(number).length < 3
+        );
+      }
+
+      function getNum(num) {
+        let numbers = [];
+        for (let i = 1; i <= num; i++) {
+          if (num % i === 0) {
+            numbers.push(i);
+          }
+        }
+        return numbers;
+      }
+      console.log(solution(12));
+      console.log(solution(17));
+      console.log(solution(420));
+    </script>
+  </body>
+</html>
