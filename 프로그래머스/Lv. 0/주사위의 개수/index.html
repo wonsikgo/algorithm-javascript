@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>주사위의 개수</title>
+  </head>
+  <body>
+    <script>
+      function solution(box, n) {
+        return (
+          parseInt(box[0] / n) * parseInt(box[1] / n) * parseInt(box[2] / n)
+        );
+      }
+
+      console.log(solution([1, 1, 1], 1));
+      console.log(solution([10, 8, 6], 3));
+    </script>
+  </body>
+</html>
