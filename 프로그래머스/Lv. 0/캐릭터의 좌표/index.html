@@ -14,16 +14,16 @@
         return keyinput.reduce(
           (pre, cur) => {
             if (cur === "left") {
-              if (parseInt(pre[0] - 1) > limitX) return pre;
+              if (Math.abs(pre[0] - 1) > limitX) return pre;
               return [pre[0] - 1, pre[1]];
             } else if (cur === "right") {
-              if (parseInt(pre[0] - 1) > limitX) return pre;
+              if (Math.abs(pre[0] + 1) > limitX) return pre;
               return [pre[0] + 1, pre[1]];
             } else if (cur === "up") {
-              if (parseInt(pre[1] + 1) > limitY) return pre;
+              if (Math.abs(pre[1] + 1) > limitY) return pre;
               return [pre[0], pre[1] + 1];
             } else if (cur === "down") {
-              if (parseInt(pre[1] + 1) > limitY) return pre;
+              if (Math.abs(pre[1] - 1) > limitY) return pre;
               return [pre[0], pre[1] - 1];
             }
           },
