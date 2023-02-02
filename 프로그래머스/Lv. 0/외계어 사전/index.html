@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>외계어 사전</title>
+  </head>
+  <body>
+    <script>
+      function solution(spell, dic) {
+        const spellString = spell.sort((a, b) => a - b).join("");
+        console.log(spellString);
+        const answer = dic.some((item) => {
+          console.log(item);
+          console.log([...item].sort((a, b) => a - b).join(""));
+          // console.log([...item].every(i => dic.));
+          const word = [...item].sort((a, b) => a - b).join("");
+          return word === spellString;
+        });
+        return answer ? 1 : 2;
+      }
+      console.log(
+        solution(["p", "o", "s"], ["sod", "eocd", "qixm", "adio", "soo"])
+      );
+    </script>
+  </body>
+</html>
