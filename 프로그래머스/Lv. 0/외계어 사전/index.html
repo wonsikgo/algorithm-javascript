@@ -9,13 +9,15 @@
   <body>
     <script>
       function solution(spell, dic) {
-        const spellString = spell.sort((a, b) => a - b).join("");
+        const spellString = spell.sort().join("");
+        console.log(spell.sort());
         console.log(spellString);
         const answer = dic.some((item) => {
           console.log(item);
-          console.log([...item].sort((a, b) => a - b).join(""));
-          // console.log([...item].every(i => dic.));
-          const word = [...item].sort((a, b) => a - b).join("");
+          console.log([...item].sort());
+          console.log([...item].sort().join(""));
+
+          const word = [...item].sort().join("");
           return word === spellString;
         });
         return answer ? 1 : 2;
