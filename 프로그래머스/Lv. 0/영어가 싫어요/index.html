@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영어가 싫어요</title>
+  </head>
+  <body>
+    <script>
+      function solution(numbers) {
+        const NUMS = [
+          { key: "zero", value: 0 },
+          { key: "one", value: 1 },
+          { key: "two", value: 2 },
+          { key: "three", value: 3 },
+          { key: "four", value: 4 },
+          { key: "five", value: 5 },
+          { key: "six", value: 6 },
+          { key: "seven", value: 7 },
+          { key: "eight", value: 8 },
+          { key: "nine", value: 9 },
+        ];
+        NUMS.forEach((item) => {
+          console.log(item);
+          console.log(numbers.includes(item.key));
+          if (numbers.includes(item.key)) {
+            numbers = numbers.replace(item.key, item.value);
+          }
+        });
+        return Number(numbers);
+      }
+      console.log(solution("onetwothreefourfivesixseveneightnine"));
+    </script>
+  </body>
+</html>
