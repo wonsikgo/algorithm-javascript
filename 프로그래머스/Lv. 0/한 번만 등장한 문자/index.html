@@ -10,18 +10,20 @@
     <script>
       function solution(s) {
         const array = [...s].sort();
-        console.log(array);
+        let answer = [];
 
-        const answer = array.reduce((acc, cur) => {
-          console.log(acc);
-          if (!acc.includes(cur)) {
-            return acc.push(cur);
+        array.forEach((item) => {
+          const length = array.filter((item2) => item === item2).length;
+          if (length === 1) {
+            answer.push(item);
           }
-        }, []);
+        });
 
         return answer.join("");
       }
       console.log(solution("abcabcadc"));
+      console.log(solution("abdc"));
+      console.log(solution("hello"));
     </script>
   </body>
 </html>
