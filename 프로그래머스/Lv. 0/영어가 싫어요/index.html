@@ -25,12 +25,13 @@
           console.log(item);
           console.log(numbers.includes(item.key));
           if (numbers.includes(item.key)) {
-            numbers = numbers.replace(item.key, item.value);
+            numbers = numbers.replaceAll(item.key, item.value);
           }
         });
         return Number(numbers);
       }
-      console.log(solution("onetwothreefourfivesixseveneightnine"));
+      // console.log(solution("onetwothreefourfivesixseveneightnine"));
+      console.log(solution("oneonetwotwo"));
     </script>
   </body>
 </html>
