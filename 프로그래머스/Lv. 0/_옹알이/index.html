@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>옹알이</title>
+  </head>
+  <body>
+    <script>
+      function solution(babbling) {
+        let answer = 0;
+        const regx = /(aya|ye|woo|ma)/g;
+        babbling.forEach((item) => {
+          if (!item.replaceAll(regx, "")) {
+            answer++;
+          }
+        });
+        return answer;
+      }
+      console.log(solution(["aya", "yee", "u", "maa", "wyeoo"]));
+    </script>
+  </body>
+</html>
