@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A로 B만들기</title>
+  </head>
+  <body>
+    <script>
+      function solution(before, after) {
+        const beforeSort = [...before].sort().join("");
+        const afterSort = [...after].sort().join("");
+
+        console.log(beforeSort);
+        console.log(afterSort);
+
+        return beforeSort === afterSort ? 1 : 0;
+      }
+      console.log(solution("olleh", "hello"));
+    </script>
+  </body>
+</html>
