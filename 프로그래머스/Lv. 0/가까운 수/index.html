@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가까운수</title>
+  </head>
+  <body>
+    <script>
+      function solution(array, n) {
+        array.push(n);
+        array.sort((a, b) => a - b);
+        const index = array.findIndex((a) => a === n);
+
+        if (index === array.length - 1) {
+          return array[index - 1];
+        }
+
+        if (index === 0) {
+          return array[index + 1];
+        }
+
+        let answer = "";
+        const pre = n - array[index - 1];
+        const aft = array[index + 1] - n;
+        console.log(`pre:  ${pre}`);
+        console.log(`aft:  ${aft}`);
+        if (pre > aft) {
+          answer = array[index + 1];
+        } else {
+          answer = array[index - 1];
+        }
+
+        return answer;
+      }
+
+      console.log(solution([3, 10, 28], 20));
+    </script>
+  </body>
+</html>
