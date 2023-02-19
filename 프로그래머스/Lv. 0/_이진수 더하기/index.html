@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이진수 더하기</title>
+  </head>
+  <body>
+    <script>
+      function solution(bin1, bin2) {
+        const array = [];
+        let result = getDecimalNumber([...bin1]) + getDecimalNumber([...bin2]);
+
+        while (result !== 0) {
+          array.unshift(result % 2);
+          result = parseInt(result / 2);
+        }
+        console.log(array);
+
+        return array.join("");
+      }
+
+      function getDecimalNumber(array) {
+        return array.reverse().reduce((acc, cur, index) => {
+          if (cur !== "0") {
+            return (acc += 2 ** index);
+          } else {
+            return acc + 0;
+          }
+        }, 0);
+      }
+      console.log(solution("10", "11"));
+      console.log(solution("1001", "1111"));
+    </script>
+  </body>
+</html>
