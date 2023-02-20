@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>유한수 판별하기</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b) {
+        const gcd = getGCD(a, b);
+
+        const denominator = b / gcd;
+        // return denominator % 2 === 0 || denominator % 5 === 0 ? 1 : 2;
+        let temp = [];
+        for (let i = 2; i <= denominator; i++) {
+          if (denominator % i === 0) {
+            temp.push(i);
+          }
+        }
+        const isLimited = temp.every((i) => {
+          return i % 2 === 0 || i % 5 === 0;
+        });
+        return isLimited ? 1 : 2;
+      }
+
+      function getGCD(a, b) {
+        if (a % b === 0) {
+          return b;
+        } else {
+          return getGCD(b, a % b);
+        }
+      }
+
+      console.log(solution(7, 20));
+      console.log(solution(11, 22));
+      console.log(solution(12, 21));
+    </script>
+  </body>
+</html>
