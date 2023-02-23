@@ -12,6 +12,8 @@
         const array = [];
         let result = getDecimalNumber([...bin1]) + getDecimalNumber([...bin2]);
 
+        if (!result) return 0;
+
         while (result !== 0) {
           array.unshift(result % 2);
           result = parseInt(result / 2);
